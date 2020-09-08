@@ -28,8 +28,12 @@ DAPIFUNC_ADD(AdjustWindowRectEx)
 // Kernel32
 DAPIFUNC_ADD(LoadLibraryA)
 
+// ws2_32
+DAPIFUNC_ADD(socket)
+DAPIFUNC_ADD(connect)
+
 DAPIFUNC_END
-#define DAPIFUNC_COUNT 12
+#define DAPIFUNC_COUNT 14
 
 BOOL SetupGameHooks()
 {

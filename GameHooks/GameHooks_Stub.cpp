@@ -9,7 +9,7 @@
 #include "StdAfx.h"
 #include "GameHooks.hpp"
 
-#if !IS_WA
+#if !(IS_WA)
 
 DAPIFUNC_IMP(LockWindowUpdate, BOOL, WINAPI, (HWND hWndLock))
 {
@@ -62,7 +62,7 @@ DAPIFUNC_IMP(LoadLibraryA, HMODULE, WINAPI, (LPCSTR lpLibFileName))
 DAPIFUNC_IMP(AdjustWindowRectEx, BOOL, WINAPI, (LPRECT lpRect, DWORD dwStyle,
 	BOOL bMenu, DWORD dwExStyle))
 {
-	return TrueAdjustWindowRectEx(lpRect, dwStyle, hMenu, dwExStyle);
+	return TrueAdjustWindowRectEx(lpRect, dwStyle, bMenu, dwExStyle);
 }
 
 DAPIFUNC_IMP(SetWindowPlacement, BOOL, WINAPI, (HWND hWnd, const WINDOWPLACEMENT* lpwndpl))
@@ -85,4 +85,16 @@ DAPIFUNC_IMP(SendMessageA, LRESULT, WINAPI, (
 	return TrueSendMessageA(hWnd, Msg, wParam, lParam);
 }
 
-#endif
+#endif // !IS_WA
+
+DAPIFUNC_IMP(socket, SOCKET, WSAAPI, (int af, int type, int protocol))
+{
+	return socket(af, type, protocol);
+}
+
+#if !(IS_BP)
+DAPIFUNC_IMP(connect, int, WSAAPI, (SOCKET s, const sockaddr* name, int namelen))
+{
+	return Trueconnect(s, name, namelen);
+}
+#endif // !IS_BP

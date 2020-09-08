@@ -37,6 +37,7 @@ DAPIFUNC_DEF(LoadLibraryA, HMODULE, WINAPI, (LPCSTR lpLibFileName));
 
 // WinSock2
 DAPIFUNC_DEF(socket, SOCKET, WSAAPI, (int af, int type, int protocol));
+DAPIFUNC_DEF(connect, int, WSAAPI, (SOCKET s, const sockaddr* name, int namelen));
 
 // GameHooks init
 extern BOOL SetupGameHooks();
