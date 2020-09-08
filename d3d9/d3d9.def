@@ -1,0 +1,4 @@
+LIBRARY
+EXPORTS
+	D3DPERF_SetOptions
+	Direct3DCreate9

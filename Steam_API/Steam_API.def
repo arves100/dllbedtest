@@ -1,0 +1,6 @@
+LIBRARY Steam_API
+EXPORTS
+	SteamApps
+	SteamAPI_Init
+	SteamAPI_RestartAppIfNecessary
+

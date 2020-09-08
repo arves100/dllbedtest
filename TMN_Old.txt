@@ -1,0 +1,40 @@
+
+#include <dxdiag.h>
+#include <Wbemidl.h>
+
+#include <fstream>
+
+#include "Config.h"
+
+static std::ofstream ofs;
+
+static HRESULT (WINAPI* TrueCoCreateInstance)(
+    REFCLSID  rclsid,
+    LPUNKNOWN pUnkOuter,
+    DWORD     dwClsContext,
+    REFIID    riid,
+    LPVOID* ppv
+) = CoCreateInstance;
+
+HRESULT WINAPI MyCoCreateInstance(
+    REFCLSID  rclsid,
+    LPUNKNOWN pUnkOuter,
+    DWORD     dwClsContext,
+    REFIID    riid,
+    LPVOID* ppv
+)
+{
+    if (rclsid == CLSID_DxDiagProvider || riid == IID_IDxDiagProvider || rclsid == CLSID_WbemAdministrativeLocator || rclsid == CLSID_WbemClassObject)
+    {
+        MessageBox(nullptr, _T("OCIO!"), _T("!!"), MB_OK);
+    }
+
+    OLECHAR rclsids[1024];
+    OLECHAR riids[1024];
+    StringFromIID(rclsid, (LPOLESTR*)&rclsids);
+    StringFromIID(riid, (LPOLESTR*)&riids);
+
+    ofs << "rclsid: " << rclsids << "     riid: " << riids << "\n";
+
+    return TrueCoCreateInstance(rclsid, pUnkOuter, dwClsContext, riid, ppv);
+}
