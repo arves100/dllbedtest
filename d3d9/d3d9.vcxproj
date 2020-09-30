@@ -79,7 +79,7 @@
       <ModuleDefinitionFile>d3d9.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy /y $(OutDir)$(TargetName)$(TargetExt) $(OutDir)d3dk$(TargetExt)</Command>
+      <Command>copy /y "$(OutDir)$(TargetName)$(TargetExt)" "$(OutDir)d3dk$(TargetExt)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WA|x64'">
@@ -101,7 +101,7 @@
       <ModuleDefinitionFile>d3d9.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy /y $(OutDir)$(TargetName)$(TargetExt) $(OutDir)d3dk$(TargetExt)</Command>
+      <Command>copy /y "$(OutDir)$(TargetName)$(TargetExt)" "$(OutDir)d3dk$(TargetExt)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

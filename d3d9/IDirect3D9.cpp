@@ -16,8 +16,6 @@
 
     This is primary a fast hack developed for messing around with DirectX 9, nothing
     that could be used in real production.
-
-    (Primary for fixing TMUF/TMNF notorious issues with VRAM)
 */
 
 
