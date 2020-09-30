@@ -10,7 +10,7 @@
 #define STEAM_API_STDAFX_H
 #pragma once
 
-#include "../Common/StdAfx.h"
+#include "../GameHooks/StdAfx.h"
 
 // STEAM API Documentation: https://partner.steamgames.com/doc/api
 

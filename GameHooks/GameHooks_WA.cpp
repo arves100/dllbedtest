@@ -54,7 +54,7 @@ DAPIFUNC_IMP(CreateWindowExA, HWND, WINAPI, (DWORD dwExStyle,
 
 	if (ret && (bIsSKclass || bIsWAclass))
 	{
-		if (!bIsSKclass)
+		//if (!bIsSKclass)
 		{
 			ShowWindow(ret, SW_SHOW);
 			UpdateWindow(ret);
@@ -222,8 +222,7 @@ DAPIFUNC_IMP(SendMessageA, LRESULT, WINAPI, (
 	))
 {
 	if (hWnd == CCache::Instance()->GetElement(ID_CACHE_WINDOWINFO, ID_GAMEWINDOW)
-		|| hWnd == CCache::Instance()->GetElement(ID_CACHE_WINDOWINFO, ID_AFXWINDOW)
-		|| hWnd == CCache::Instance()->GetElement(ID_CACHE_WINDOWINFO, ID_SOCKETWINDOW))
+		|| hWnd == CCache::Instance()->GetElement(ID_CACHE_WINDOWINFO, ID_AFXWINDOW))
 	{
 		return 0;
 
